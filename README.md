@@ -16,7 +16,12 @@
 }
 ````
 
-#### Breakdown of key microservices:
+## Architecture Diagram:
+
+![boot-store-app-architecture](book-store-app-architecture-diagram.png)
+
+
+## Breakdown of key microservices:
 
 __1. Product Catalog:__ Stores product details like name, description, price, images, and variations.
 
@@ -41,7 +46,7 @@ __10. Email Notifications:__ Sends order confirmation, shipping updates, and oth
 __11. Product Rating Service:__ Provides the rating information for the product
 
 
-#### Server Ports:
+### Server Ports:
 
 | Service Name      | Port | Remarks |
 |-------------------|------|---------|
