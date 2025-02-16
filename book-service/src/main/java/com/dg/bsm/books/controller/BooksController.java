@@ -11,9 +11,13 @@ import java.util.List;
 @RequestMapping("/books")
 public class BooksController {
 
+    private final BookInfoService bookInfoService;
 
-    @Autowired
-    private BookInfoService bookInfoService;
+    
+    public BooksController(BookInfoService bookInfoService) {
+        this.bookInfoService = bookInfoService;
+    }
+
     //TODO: two things to do
     //1. Get Paginated Books
     //2. Group By category and share few books per category
