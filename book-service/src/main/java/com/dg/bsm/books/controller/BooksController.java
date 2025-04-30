@@ -1,11 +1,15 @@
 package com.dg.bsm.books.controller;
 
-import com.dg.bsm.books.domain.BookInfo;
-import com.dg.bsm.books.service.BookInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.dg.bsm.books.domain.BookInfo;
+import com.dg.bsm.books.domain.BookInfoPage;
+import com.dg.bsm.books.service.BookInfoService;
 
 @RestController
 @RequestMapping("/books")
@@ -22,8 +26,9 @@ public class BooksController {
     //1. Get Paginated Books
     //2. Group By category and share few books per category
     @GetMapping
-    public List<BookInfo> getAllBooks(){
-        return bookInfoService.getAllBooks();
+    public BookInfoPage getAllBooks(@RequestParam(name = "page", defaultValue = "1") int page,
+                                    @RequestParam(name = "size", defaultValue = "10") int size){
+        return bookInfoService.getAllBooks(page, size);
     }
 
     @PostMapping
